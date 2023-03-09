@@ -4,7 +4,7 @@ import RestaurantCard  from "./RestaurantCard";
 
 
 function filterData(searchText, restaurants) {
-   const filterData = restaurants.filter((restaurant) =>  restaurant.data.name.includes(searchText));
+   const filterData = restaurants.filter((restaurant) => restaurant.data.name.includes(searchText));
 
    return filterData;
 };
@@ -30,8 +30,8 @@ const Body = () => {
                 <button 
                 className="search-button"
                 onClick = {() => {
-                    const data = filterData(searchText, restaurants);
-                    setRestuarants(data);
+                    const data = filterData(searchText, restaurants); //getting fileterd data
+                    setRestuarants(data);                            //updating data
                 }}
                 >    
                     Search
