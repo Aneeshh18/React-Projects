@@ -2,6 +2,8 @@
 export const IMG_CDN_URL =
   "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/";
 
+export const ITEM_IMG_CDN_URL = "";
+
 // RestaurantList is JSON Data for displaying cards
 export const restaurantList = [
   {
@@ -1820,3 +1822,7 @@ export const restaurantList = [
     subtype: "basic",
   },
 ];
+
+export const swiggy_menu_api_url = "https://www.swiggy.com/dapi/menu/v4/full?lat=26.8466937&lng=80.94616599999999&menuId=" ;
+
+export const shimmerCardUnit = 15;
