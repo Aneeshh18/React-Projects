@@ -1825,4 +1825,16 @@ export const restaurantList = [
 
 export const swiggy_menu_api_url = "https://www.swiggy.com/dapi/menu/v4/full?lat=26.8466937&lng=80.94616599999999&menuId=" ;
 
+
+export const Github_API_User = "https://api.github.com/users/";
+export const Github_UserName = "Aneeshh18";
+
 export const shimmerCardUnit = 15;
+
+// Github Authorization Token
+export const options = {
+  method: "GET",
+  headers: {
+    Authorization: "",
+  },
+};

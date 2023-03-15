@@ -7,7 +7,7 @@ import About from "./About";
 import Error from "./Error";
 import Contact from "./Contact";
 import RestuarantMenu from './RestaurantMenu'
-import Profile from './Profile'
+import Profile from './ProfileClass'
 import {createBrowserRouter, RouterProvider, Outlet} from 'react-router-dom';   
 
 
@@ -37,12 +37,10 @@ const appRouter = createBrowserRouter([
             {
             path: "/About",
             element: <About />,
-            children: [
-                {
-                path: "Profile",
+            children: [{              //Nested Routing
+                path: "profile",
                 element: <Profile />,
-                }
-            ],
+                }],
             },
             {
                 path: "/Contact",
@@ -55,7 +53,6 @@ const appRouter = createBrowserRouter([
         ],
     },
 ]);
-
 
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
