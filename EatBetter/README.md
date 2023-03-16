@@ -1,5 +1,5 @@
 
-- I made [](https://-app.netlify.app/) from scratch using React.js and Parcel.js, which is the part of this course.
+I Have Completed the project using [](https://-app.netlify.app/) from scratch using React.js and Parcel.js
 
 ## 🔥 Clone this Repository
 You need to write the following commands on the terminal screen(in vscode) so that you can run this project locally.
