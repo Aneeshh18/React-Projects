@@ -17,16 +17,17 @@ import RestuarantMenu from "./RestaurantMenu";
 import Profile from "./Profile";
 import Cart from "./Cart";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
-
+import { Provider } from "react-redux";
+import store from "../utils/Store";
 
 
 const AppLayout = () => {
   return (
-    <>
+    <Provider store={store}>
       <Header />
       <Outlet />
       <Footer />
-    </>
+    </Provider>
   );
 };
 

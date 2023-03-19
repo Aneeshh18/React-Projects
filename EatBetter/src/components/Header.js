@@ -1,6 +1,7 @@
 import { useState } from "react";
 import logo from "../Images/logo.jpg"
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
+import { useSelector } from "react-redux"; 
 
 const Logo = () => (
     <a href="/">
@@ -14,6 +15,8 @@ const Logo = () => (
  const Header = () => {
 
     const [isLoggedin, setIsLoggedin] = useState(true);
+
+    const cartItems = useSelector((store) => store.cart.items);
 
     return (
         <div className="flex justify-between items-center shadow-md z-10">
@@ -32,7 +35,8 @@ const Logo = () => (
                       <Link to="/help">Help</Link>
                     </li>
                     <li className="pt-3 p-3 mr-10"  >
-                      <Link to="/Cart">Cart</Link>
+                      <Link to="/Cart">
+                        Cart- {cartItems.length}items </Link>
                     </li>
                 </ul>
             </div>

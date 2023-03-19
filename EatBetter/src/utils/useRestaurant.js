@@ -13,9 +13,9 @@ const useRestaurant = (resId) => {
 
     async function getRestarurantInfo() {
         const data = await fetch(
-            swiggy_menu_api_url + resId
+         swiggy_menu_api_url + resId
         );
-        const json = await data.json();
+        const json = await data.json(); 
         setRestaurant(json?.data);
     }
 
