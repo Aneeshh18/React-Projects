@@ -2,10 +2,10 @@ import { useState } from "react";
 import logo from "../Images/logo.jpg"
 import {Link} from 'react-router-dom'
 
-const Title = () => (
+const Logo = () => (
     <a href="/">
         <img 
-        className="logo"
+        className="w-24 p-2"
         src={logo}
         alt="logo" />
     </a>
@@ -16,37 +16,26 @@ const Title = () => (
     const [isLoggedin, setIsLoggedin] = useState(true);
 
     return (
-        <div className="header">
-            <Title />
-
-            <div className="nav-items">
-                <ul>
-                    
-                    <li>
+        <div className="flex justify-between items-center shadow-md z-10">
+            <div className="flex items-center">
+              <Logo />
+            </div>
+            <div>
+                <ul className="flex list-none pr-14 font-poppins">
+                    <li className="p-3 mr-10">
                       <Link to= "/">Home</Link>
                     </li>
-                    <li> 
+                    <li className="p-3 mr-10"> 
                       <Link to="/about">About US</Link>
                     </li>
-                    <li>
-                      <Link to="/contact">Contact</Link>
+                    <li className="p-3 mr-10">
+                      <Link to="/help">Help</Link>
                     </li>
-                    <li>Cart</li>
+                    <li className="pt-3 p-3 mr-10"  >
+                      <Link to="/Cart">Cart</Link>
+                    </li>
                 </ul>
             </div>
-
-           {isLoggedin ? (
-              <button
-                className="logout-btn"
-                onClick={() => setIsLoggedin(false)}
-              >
-                Logout
-              </button>
-            ) : (
-              <button className="login-btn" onClick={() => setIsLoggedin(true)}>
-                Login
-              </button>
-            )}
         </div>
     );
 };

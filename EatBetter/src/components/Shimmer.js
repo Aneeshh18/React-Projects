@@ -1,26 +1,23 @@
-import { shimmerCardUnit } from "../config";
 
 
-const CardShimmer = () => {
+const Shimmer = () => {
     return (
-        <div className="shimmer-card">
-            <div className="shimmer-img stroke animate"></div>
-            <div className="shimmer-title stroke animate"></div>
-            <div className="shimmer-tags stroke animate "></div>
-            <div className="shimmer-details stroke animate "></div>
-        </div>
-    );
-};
-
-
-
-const Shimmer = () =>{
-    return (
-        <div className="shimmer-container">
-          {new Array(shimmerCardUnit).fill(0).map((element, index) => {
-             return <CardShimmer key={index} />;
-      })}
-        </div>
+        <>
+            <div className="flex flex-wrap" >
+                {Array(10)
+                    .fill([])
+                    .map((e, index) => (
+                        <div key={index} className="shadow-lg m-3 p-3 w-72 h-72">
+                            <div className="w-full h-1/2 border rounded-sm bg-64 custom-linear-gradient animate-shimmer"></div>
+                            <div
+                                className="w-[90%] h-[10%] mt-3 border rounded-sm bg-64 custom-linear-gradient animate-shimmer "
+                            ></div>
+                            <div className="w-[70%] h-[7%]  mt-3 border rounded-sm bg-64 custom-linear-gradient animate-shimmer"></div>
+                            <div className="w-[70%] h-[7%]  mt-3 border rounded-sm bg-64 custom-linear-gradient animate-shimmer"></div>
+                        </div>
+                    ))}
+            </div>
+        </>
     );
 };
 

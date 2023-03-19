@@ -20,11 +20,11 @@ const RestaurantMenu = () => {
                 <img className="restaurant-img" src={IMG_CDN_URL + restaurant?.cloudinaryImageId} alt={restaurant?.name} />
                 <div className="restaurant-summary-details">
                     <h2 className="restaurant-title"> {restaurant?.name}</h2>
-                    <p className="restaurant-tags">{restaurant?.cuisines.join(",")}</p>
+                    <p className="restaurant-tags">{restaurant?.cuisines?.join(", ")}</p>
                     <div className="restaurant-details">
                         <div className="restaurant-rating" style={(restaurant?.avgRating) < 4 ? { backgroundColor: "var(--light-red)" } : (restaurant.avgRating) === "--" ? { backgroundColor: "black", color: "white" } : { color: "blue" }}>
                             <span>{restaurant?.costForTwoMsg}</span>
-                            <div>{restaurant?.sla.slaString}</div>
+                            <div>{restaurant?.sla?.slaString}</div>
                         </div>
                     </div>
                     <h1> Restaurant Id: {resId} </h1>
