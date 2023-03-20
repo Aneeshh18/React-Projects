@@ -10,6 +10,8 @@ const Body = () => {
   const [searchText, setSearchText] = useState("");
   const [allRestaurants, setAllRestuarants] = useState([]);
   const [filteredRestaurants, setFilteredRestuarants] = useState([]);
+ 
+
 
   useEffect(() => {
     getRestaurants();
@@ -82,8 +84,8 @@ const Body = () => {
             filteredRestaurants.map((restaurant) => {
               return (
                 <Link
-                  to={"/restaurant/" + restaurant.data.id}
                   key={restaurant.data.id}
+                  to={"/restaurant/" + restaurant.data.id}
                 >
                   <RestaurantCard {...restaurant.data} />
                 </Link>
