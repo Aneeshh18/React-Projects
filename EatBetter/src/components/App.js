@@ -15,7 +15,7 @@ import Error from "./Error";
 import Help from "./Help";
 import RestuarantMenu from "./RestaurantMenu";
 import Profile from "./Profile";
-import Cart from "./Cart";
+import CartPage from "./CartPage";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import { Provider } from "react-redux";
 import store from "../utils/Store";
@@ -67,7 +67,7 @@ const appRouter = createBrowserRouter([
       },
       {
         path: "/cart",
-        element: <Cart />,
+        element: <CartPage />,
       },
     ],
   },
