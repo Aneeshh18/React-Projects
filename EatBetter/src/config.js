@@ -1826,6 +1826,10 @@ export const restaurantList = [
 
 export const swiggy_menu_api_url = "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=26.8466937&lng=80.94616599999999&restaurantId=" ;
 
+export const MENU_ITEM_TYPE_KEY = "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory";
+export const RESTAURANT_TYPE_KEY = "type.googleapis.com/swiggy.presentation.food.v2.Restaurant";
+
+
 
 export const Github_API_User = "https://api.github.com/users/";
 export const Github_UserName = "Aneeshh18";

@@ -41,6 +41,7 @@ const Body = () => {
         <div className="my-12 flex items-center justify-center">
           <div className="flex justify-between w-1/3 border border-slate-400 border-1 focus:w-2/3 ">
             <input
+            data-testid = "search-sinput"
               type="text"
               className="p-3 grow h-12 w-[90%] focus:outline-none"
               placeholder="Search for restaurants"
@@ -77,7 +78,7 @@ const Body = () => {
         </div>
 
 
-          <div className="flex flex-wrap  text-center justify-center">
+          <div className="flex flex-wrap  text-center justify-center" data-testid = "res-list">
           {filteredRestaurants?.length === 0 ? (
             <p className="w-full font-bold text-center">No Restaurants Found</p>
           ) : (
