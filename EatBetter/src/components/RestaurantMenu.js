@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import {
   IMG_CDN_URL,
   ITEM_IMG_CDN_URL,
-  swiggy_menu_api_url,
+  FETCH_MENU_URL,
   MENU_ITEM_TYPE_KEY,
   RESTAURANT_TYPE_KEY,
 } from "../config";
@@ -22,7 +22,7 @@ const RestaurantMenu = () => {
 
   async function getRestaurantInfo() {
     try {
-      const response = await fetch(swiggy_menu_api_url + resId);
+      const response = await fetch(FETCH_MENU_URL + resId);
       const json = await response.json();
 
       // Set restaurant data
@@ -80,15 +80,15 @@ const RestaurantMenu = () => {
         />
         <h2>
           {" "}
-          <span className="block font-semibold text-2xl max-sm:mt-5 max-sm:ml-4 max-sm:text-sm font-poppins">
+          <span className="block font-semibold text-3xl max-sm:mt-5 max-sm:ml-4 max-sm:text-sm font-poppins">
             {restaurant?.name}
           </span>
-          <p className=" max-sm:ml-4 opacity-4 max-sm:text-sm font-thin">
+          <p className=" max-sm:ml-4 opacity-75 max-sm:text-sm font-thin">
             {restaurant?.cuisines?.join(", ")}
           </p>
         </h2>
 
-        <div className="flex  justify-between gap-12 pt-5 font-semibold text-base mt-7">
+        <div className="flex  justify-between gap-12 pt-5 font-semibold text-base mt-16">
           <div className="pr-9 border-r-[1px] border-white">
             <h3>{restaurant?.avgRating} stars</h3>
             <br />

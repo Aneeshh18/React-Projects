@@ -1,21 +1,22 @@
 import { useState } from "react";
-import food from "../Images/images.jpeg";
+import food from "../Images/download.png";
 import { Link, Outlet } from "react-router-dom";
 
 const About = () => {
   const [show, setShow] = useState(false);
   return (
-    <div>
-      <div className="flex flex-wrap flex-col m-10 text-center font-extrabold text-4xl height font-serif">
+    <div className=" flex justify-center items-center font-poppins bg-slate-50">
+      <div className="flex flex-wrap flex-col m-10 text-center font-bold text-4xl height font-serif">
         <div>
           <h1>
-            Welcome to The world of{" "}
-            <span className="text-orange-500">Tasty & Fresh </span> Food.
+            Welcome to The World of{" "}
+            <span className="text-green-800 font-poppins">Tasty & Fresh </span> Food.
           </h1>
           "Eat Better Live Better"
         </div>
         <div className=" max-w-screen-lg mx-auto pt-10 flex justify-center">
-          <img src={food} alt="Food Image" />
+          <img className="w-80"
+          src={food} alt="Food Image" />
         </div>
 
         <div className="text-center">
@@ -23,7 +24,7 @@ const About = () => {
             <>
               <Link to={"/about"}>
                 <button
-                  className="py-2 px-2 m-5 rounded-tr-lg cursor-pointer  bg-orange-500 text-zinc-100 "
+                  className="text-lg py-2 px-2 m-5 rounded-tr-lg cursor-pointer  bg-slate-800 text-zinc-100 "
                   onClick={() => setShow(false)}
                 >
                   Hide My Profile
@@ -34,7 +35,7 @@ const About = () => {
           ) : (
             <Link to={"profile"}>
               <button
-                className="py-2 px-2 m-5 rounded-tr-lg cursor-pointer  bg-orange-500 text-zinc-100 "
+                className="text-lg py-2 px-2 m-5 rounded-tr-md cursor-pointers bg-slate-800 text-zinc-100 "
                 onClick={() => setShow(true)}
               >
                 Show My Profile

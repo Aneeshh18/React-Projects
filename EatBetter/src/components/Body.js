@@ -1,34 +1,61 @@
-import { useState, useEffect } from "react";
-import { restaurantList } from "../config";
+import { useState, useEffect, useRef } from "react";
 import RestaurantCard from "./RestaurantCard";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import { filterData } from "../utils/helper";
 import useOnline from "../utils/useOnline";
+import { API_URL } from "../config";
 
 const Body = () => {
   const [searchText, setSearchText] = useState("");
   const [allRestaurants, setAllRestuarants] = useState([]);
   const [filteredRestaurants, setFilteredRestuarants] = useState([]);
- 
-
+  const [isLoading, setIsLoading] = useState(false);
+  const [hasMore, setHasMore] = useState(true);
+  const page = useRef(1);
 
   useEffect(() => {
     getRestaurants();
   }, []);
 
   async function getRestaurants() {
-    const data = await fetch(
-      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=26.8466937&lng=80.94616599999999&page_type=DESKTOP_WEB_LISTING"
-    );
+    setIsLoading(true);
+    const data = await fetch(API_URL);
     const json = await data.json();
-    setAllRestuarants(json?.data?.cards[2]?.data?.data?.cards);
-    setFilteredRestuarants(json?.data?.cards[2]?.data?.data?.cards);
+    const restaurants = json?.data?.cards[2]?.data?.data?.cards;
+    if (restaurants && restaurants.length > 0) {
+      setAllRestuarants([...allRestaurants, ...restaurants]);
+      setFilteredRestuarants([...allRestaurants, ...restaurants]);
+      page.current += 1;
+      setHasMore(true);
+    } else {
+      setHasMore(false);
+    }
+    setIsLoading(false);
   }
+
+  function handleScroll() {
+    if (
+      window.innerHeight + document.documentElement.scrollTop ===
+        document.documentElement.offsetHeight &&
+      !isLoading &&
+      hasMore
+    ) {
+      getRestaurants();
+    }
+  }
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [isLoading, hasMore]);
+
   const isOnline = useOnline();
 
   if (!isOnline) {
-    return <h1>🛑Offline!!Check Your Internet!</h1>;
+    return <h1 className="m-10 flex justify-center text-center text-3xl font-bold font-sans">🛑Offline!!Check Your Internet!</h1>;
   }
 
   //early return
@@ -36,12 +63,12 @@ const Body = () => {
     <Shimmer />
   ) : (
     <>
-      <div className=" flex-grow">
+      <div className=" bg-slate-50 flex-grow">
         {/* {search bar} */}
-        <div className="my-12 flex items-center justify-center">
+        <div className="py-12 flex items-center justify-center">
           <div className="flex justify-between w-1/3 border border-slate-400 border-1 focus:w-2/3 ">
             <input
-            data-testid = "search-sinput"
+              data-testid="search-sinput"
               type="text"
               className="p-3 grow h-12 w-[90%] focus:outline-none"
               placeholder="Search for restaurants"
@@ -77,8 +104,10 @@ const Body = () => {
           </div>
         </div>
 
-
-          <div className="flex flex-wrap  text-center justify-center" data-testid = "res-list">
+        <div
+          className="flex flex-wrap  text-center justify-center"
+          data-testid="res-list"
+        >
           {filteredRestaurants?.length === 0 ? (
             <p className="w-full font-bold text-center">No Restaurants Found</p>
           ) : (

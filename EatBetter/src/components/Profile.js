@@ -5,8 +5,8 @@ import avatar from "../Images/avatar.jpg";
 const Profile = () => {
   return (
     <div className="flex-1 flex justify-center items-center font-poppins bg-slate-50">
-      <div className="flex flex-col justify-center items-center mt-4 gap-5 shadow-lg border w-fit max-w-xs">
-        <p className="font-medium text-xl w-full text-center py-2">About Me</p>
+      <div className="flex flex-col justify-center items-center rounded-md mt-4 gap-5 shadow-lg border w-fit max-w-xs">
+        <p className=" text-xl font-bold text-center py-2">About Me</p>
         <img
           className="rounded-full w-[150px] h-[150px] border-none align-middle"
           src={avatar}
@@ -17,7 +17,7 @@ const Profile = () => {
             ReactJs | JavaScript | HTML5 | CSS3 | Tailwind CSS | Front End
             Developer
           </p>
-          <div className=" text-[2em] text-center w-full flex items-center justify-center mt-2">
+          <div className=" text-center w-full flex items-center justify-center mt-2">
             <a
               href={GITHUB_LINK}
               className="mb-2 pr-4 hover:scale-105"
